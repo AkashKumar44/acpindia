@@ -5,12 +5,10 @@
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Add Data</h4>
+                  <h4 class="card-title">Add Employee</h4>
                   
                   <form  action="<?php echo base_url('WebSiteInfo/insert'); ?>"  class="forms-sample" method="post" enctype="multipart/form-data">
-                    <div class="form-group">
-                      <input type="text" name="name" class="form-control"  placeholder="Name" required >
-                    </div>
+                    
                     <div class="form-group">
                       <label>File upload</label>
                       <div class="input-group col-xs-12">

@@ -33,7 +33,6 @@ class Admin extends BaseController
             return view('admin/include/header') . view('admin/index') . view('admin/include/footer');
         } else {
            return redirect()->to(base_url());
-            // echo "Hello";
         }
     }
 

@@ -14,7 +14,7 @@
 <body style="background-color: #d7f9e1;">
    <nav class="navbar navbar-expand-lg ">
       <div class="container">
-         <a class="navbar-brand col-8 col-md-6 col-lg-4 mx-auto" href="<?= base_url() ?>">
+         <a class="navbar-brand col-8 col-md-6 col-lg-4 mx-auto" href="<?= base_url('http://localhost:8080/userlogin') ?>">
          <img class="img-fluid " src="http://rxeventslive.in/ACPIndia/images/acl.png">
          </a>
       </div>
@@ -25,21 +25,20 @@
                 <div class="my-3   col-xl-8  d-flex flex-direction-column">
                     <section id="carouselExampleInterval" class="carousel slide w-100 card bg-light shadow" data-ride="carousel">
                         <div class="carousel-inner card-body">
-                            <!-- <div class="carousel-item active" data-interval="10000"> -->
-                                <img src="<?=base_url('uplodes')."/".$img = (isset($bannerImage)) ? $bannerImage : '' ?>" alt="banner image"  height="550" width="100%">
-                            <!-- <iframe width="100%" height="550px" src="https://www.youtube.com/embed/Vg80dgYB2is" frameborder="0"></iframe> -->
+                            <img src="<?=base_url('uplodes')."/".$img = (isset($bannerImage)) ? $bannerImage : '' ?>" alt="banner image"  height="550" width="100%">
                         </div>
                     </section>
                 </div>
-                <div class="my-3 offset-sm-1 col-sm-10 col-lg-4 offset-lg-0 col-xl-4 ">
+                <div class="my-3 offset-sm-1 col-sm-10 col-lg-4 offset-lg-0 col-xl-4">
                     <h3 class="pb-2" style="clear:both;">Ask Questions<br></h3>
+                    <span>User Login :<b><?= $_SESSION['name']?></b></span>
                     <form action="<?php echo base_url('Home/userqu'); ?>" method="POST">
-                        <div class="form-group">
+                        <div class="form-group pt-2">
                             <textarea class="form-control" rows="3" name="commet" id="comments" required></textarea>
                         </div>
                         <div class="form-group">
                             <a href="<?= base_url('userlogin') ?>"><button type="submit" class="btn btn-primary px-5 p-2">submit</button> </a>
-                            <a href="<?php echo base_url('user/logout'); ?>"  class="btn  btn-danger px-5 p-2">Logout</a>
+                            <a href="<?php echo base_url('/user/logout'); ?>"  class="btn  btn-danger px-5 p-2">Logout</a>
                         </div>
                     </form>
                 </div>

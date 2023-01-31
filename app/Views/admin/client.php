@@ -17,9 +17,6 @@
                             Id
                           </th>
                           <th>
-                             Name
-                          </th>
-                          <th>
                             files
                           </th>
                           <th>
@@ -33,9 +30,6 @@
                         <tr class="table-info">
                         <td>
                             <?= $item['id']?>
-                          </td>
-                          <td>
-                            <?= $item['name']?>
                           </td>
                           <td>
                           <img src="<?= base_url('uplodes')."/".$item['files'];?>" height="400" width="" alt="">

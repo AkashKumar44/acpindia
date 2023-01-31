@@ -33,23 +33,21 @@ class Home extends BaseController
     
     public function login_user()
     {
-        $usermodel = new UserModel();
-        $userdata = $usermodel->where('email',$this->request->getvar('email'))->first();
-            if($userdata != null)
-            { 
-                $_SESSION['user-login']=true;
-                $_SESSION['user-id']=$userdata['id'];
-                return redirect('userlogin')->with('status','user insert ok');
-            }
-            else{
-                // return view('userlogin');
-                return redirect('/')->with('status','user insert ok');
-            }
+  
+            $usermodel = new UserModel();
+            $userdata = $usermodel->where('email',$this->request->getvar('email'))->first();
+                if($userdata != null)
+                { 
+                    $_SESSION['user-login']=true;
+                    $_SESSION['user-id']=$userdata['id'];
+                    $_SESSION['name']=$userdata['name'];
+                    return redirect('userlogin')->with('status','user insert ok');
+                }
+          
+     
     }
     public function userqu()
     {
-        
-        
         $usermodel = new UserModel();
         
         $data = ['commet' => esc($this->request->getPost('commet'))];
@@ -64,13 +62,15 @@ class Home extends BaseController
     } 
     public function userlogin()
     {
-        // fetch banner image
-        $webinfo = model('App\Models\WebInfo');
-        $bannerQuery = $webinfo->orderBy('id', 'DESC')->first();
-        return view('userlogin', ['bannerImage' => $bannerQuery['files']]);
-       
+        if (isset($_SESSION['user-login'])) {
+            $webinfo = model('App\Models\WebInfo');
+            $bannerQuery = $webinfo->orderBy('id', 'DESC')->first();
+            return view('userlogin', ['bannerImage' => $bannerQuery['files']]);
+        }else{
+            return redirect('/');
+        }
     }
-  
+    
     public function userlist()
     {
         return view('admin/include/header') . view('admin/userlist') . view('admin/include/footer');
@@ -84,10 +84,14 @@ class Home extends BaseController
      }  
      public function usercommet()  
      {  
-       $usermodel = new UserModel();
-       $data['usermodel'] = $usermodel->findAll();
-       return view('admin/include/header') . view('admin/usercommet',$data) . view('admin/include/footer');
-     }  
+        if (isset($_SESSION['admin-login'])) {
+            $usermodel = new UserModel();
+            $data['usermodel'] = $usermodel->findAll();
+            return view('admin/include/header') . view('admin/usercommet',$data) . view('admin/include/footer');
+        }else{
+            return redirect('/');
+        }   
+    }
      public function userLogout()
      {
          session_destroy();

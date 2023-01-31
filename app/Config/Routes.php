@@ -42,8 +42,8 @@ $routes->get('admin/usercommet', 'Home::usercommet');
 $routes->get('admin/addimg', 'WebSiteInfo::adminiimgindex');
 $routes->get('admin/client', 'WebSiteInfo::clientview');
 
-$routes->get('admin/client_edit(:num)','WebSiteInfo::client_edit/$1');
-// $routes->put('WebSiteInfo/update(:num)','WebSiteInfo::update/$1');
+$routes->get('WebSiteInfo/client_edit/(:num)','WebSiteInfo::client_edit/$1');
+$routes->post('WebSiteInfo/client_update/(:num)','WebSiteInfo::client_update/$1');
 $routes->get('WebSiteInfo/delete(:num)','WebSiteInfo::delete/$1');
 
 $routes->match(['get', 'post'], 'WebSiteInfo/insert', 'WebSiteInfo::insert');
@@ -54,6 +54,7 @@ $routes->match(['get', 'post'], 'Home/index_record', 'Home::index_record');
 // $routes->get('/home/index_record', 'Home::index_record');
 $routes->get('/userlogin', 'Home::userlogin');
 $routes->get('/user/logout', 'Home::userLogout');
+$routes->get('/logout', 'Home::userLogout');
 
 // admin model and controller
 $routes->get('/admin', 'Admin::admin');
