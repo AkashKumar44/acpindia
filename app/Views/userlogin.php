@@ -35,11 +35,11 @@
                     <h3 class="pb-2" style="clear:both;">Ask Questions<br></h3>
                     <form action="<?php echo base_url('Home/userqu'); ?>" method="POST">
                         <div class="form-group">
-                            <textarea class="form-control" rows="3" name="commet" id="comments"></textarea>
+                            <textarea class="form-control" rows="3" name="commet" id="comments" required></textarea>
                         </div>
                         <div class="form-group">
-                        <a href="<?= base_url('userlogin') ?>"><button type="submit" class="btn btn-primary px-5 p-2">submit</button> </a>
-                            <a href="<?php echo base_url('Home'); ?>"><button  class="btn  btn-danger px-5 p-2">Logout</button></a>
+                            <a href="<?= base_url('userlogin') ?>"><button type="submit" class="btn btn-primary px-5 p-2">submit</button> </a>
+                            <a href="<?php echo base_url('/'); ?>" class="btn  btn-danger px-5 p-2">Logout</a>
                         </div>
                     </form>
                 </div>

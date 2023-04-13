@@ -46,7 +46,7 @@
                                              <?= $validation->listErrors() ?>
                                           </div>
                                           <?php endif;?>
-                                       <form action="<?php echo base_url('Home/index_record'); ?>" method="post">
+                                       <form action="<?php echo base_url('Home/index_record'); ?>" method="POST">
                                           <div class="row">
                                              <div class="col">
                                                 <div class="form-group">
@@ -69,7 +69,7 @@
                                              </div>
                                           </div>
                                           <div class="d-flex mt-3">
-                                             <button type="submit" class="btn btn-primary px-5 p-2">Register for live webinar</button>
+                                             <button type="submit" class="btn btn-primary px-5 p-2" >Register for live webinar</button>
                                           </div>
                                        </form>
                                     </div>
